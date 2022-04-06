@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <title>Dimensional World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/ico" href="/favicon.ico" />
+  <link href="./css/style.css" rel="stylesheet" />
+  <link href="./css/font-awesome.min.css" rel="stylesheet" />
+  <style>
+    
+    footer #footer-container .swiper-scrollbar {
+      display: none;
+      
+    }
+  </style>
+  <style id="smooth-scrollbar-style">
+    [data-scrollbar] {
+      display: block;
+      position: relative;
+    }
+
+    .scroll-content {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+
+    .scrollbar-track {
+      position: absolute;
+      opacity: 0;
+      z-index: 1;
+      background: rgba(222, 222, 222, .75);
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-transition: opacity 0.5s 0.5s ease-out;
+      transition: opacity 0.5s 0.5s ease-out;
+    }
+
+    .scrollbar-track.show,
+    .scrollbar-track:hover {
+      opacity: 1;
+      -webkit-transition-delay: 0s;
+      transition-delay: 0s;
+    }
+
+    .scrollbar-track-x {
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+    }
+
+    .scrollbar-track-y {
+      top: 0;
+      right: 0;
+      width: 8px;
+      height: 100%;
+    }
+
+    .scrollbar-thumb {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      background: rgba(0, 0, 0, .5);
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body class="hidden hidden-ball smooth-scroll">
+  <main>
+    <!-- Loading -->
+    <div class="preloader-wrap">
+      <div class="outer">
+        <div class="inner">
+          <div class="percentage" id="precent"></div>
+          <div class="trackbar">
+            <div class="loadbar"></div>
+          </div>
+          <div class="headphones"></div>
+          <div class="headphones-text">
+            加载中。。。( • ̀ω•́ )✧
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cd-index cd-main-content">
+      <div id="page-content" class="light-content">
+        <header class="fullscreen-menu" style="background-color: transparent;">
+          <div id="header-container" style="opacity: 1; transform: translate3d(0px, 0px, 0px);">
+            <!-- Logo -->
+            <div id="logo" class="hide-ball">
+              <a class="ajax-link" href="/">
+                <img class="black-logo" src="./images/logo.png" alt="ClaPat Logo" />
+                <img class="white-logo" src="./images/logo-white.png" alt="ClaPat Logo" />
+              </a>
+            </div>
+            <!-- 菜单导航 -->
+            <nav style="background-color: rgb(17, 17, 17);">
+              <div class="nav-height">
+                <div class="outer">
+                  <div class="inner">
+                    <ul data-breakpoint="10025" class="flexnav">
+                      <li class="link menu-timeline">
+                        <a href="index.html"><span data-hover="返回首页">返回首页</span></a></li>
+                      <li class="link menu-timeline"><a class="ajax-link" href=""><span
+                            data-hover="Contact">惜梦</span></a>
+                        <ul>
+                          <li><a class="ajax-link" href="http://www.xiaomengv.top/">惜梦酱的博客</a></li>
+                          <!-- <li><a class="ajax-link" href="#">苍穹</a></li> -->
+                        </ul>
+                      </li>
+                      <li class="link menu-timeline"><a class="ajax-link" href="index.html">
+                          <span data-hover="Contact">关于我</span></a></li>
+                    </ul>
+                    <p style="text-align: center;position: fixed !important;top: calc(100vh - 100px);font-size: 14px;line-height: 30px;font-weight: 500;margin: 0 auto;display: table !important;left: calc(50% - 150px);pointer-events: initial;">惜梦 | 基于苍穹开源二次开发 | 多谢dalao</p>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <div id="burger-wrapper" class="parallax-wrap" style="transform: matrix(1, 0, 0, 1, 0, 0);">
+              <div id="menu-burger" class="parallax-element" style="transform: matrix(1, 0, 0, 1, 0, 0);">
+                <span></span>
+                <span></span>
+              </div>
+              <span class="touch-button" style="transform: matrix(1, 0, 0, 1, 0, 0);"><i class="navicon">▼</i></span>
+            </div>
+          </div>
+        </header>
+        <div id="content-scroll">
+        </div>
+        <!-- 页面内容 -->
+        <div id="main">
+          <div id="main-content">
+            <style>
+              .showcase-pagination-wrap span .showcase-counter:last-child {
+                display: block !important;
+              }
+            </style>
+            <div id="showcase-holder">
+              <div id="showcase-tilt-wrap">
+                <div id="showcase-tilt">
+                  <div id="showcase-slider" class="swiper-container">
+                    <div class="swiper-wrapper">
+                      <!-- 首张输出 -->
+                      <div class="swiper-slide bg-video" data-title="Start" data-subtitle="" data-number="1">
+                        <div class="img-mask">
+                          <!-- <div class="section-image"
+                            data-src="https://tva1.sinaimg.cn/large/007GwGf6gy1gdt2td0up1j31hc0u011c.jpg"> -->
+                            <div class="section-image"
+                            data-src="https://ae01.alicdn.com/kf/H5306e8ec957e42ee8f71a509cca2784fy.jpg">
+                            <!-- 33.jpg -->
+                            <div class="hero-video-wrapper">
+                              <video loop="" muted="" class="bgvid">
+                                <source src="" type="video/mp4">
+                              </video>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 视频演示 -->
+                      <div class="swiper-slide bg-video" data-title="星空" data-subtitle="Starry Sky" data-number="2">
+                        <div class="img-mask">
+                          <div class="section-image" data-src="https://ae01.alicdn.com/kf/Hb2b2ef7d70734473bad055d1ffc31fe6r.jpg">
+                            <!-- 799158.jpg -->
+                            <div class="hero-video-wrapper">
+                              <video loop=""  class="bgvid" > 
+                                <source src="" type="video/mp4">
+                              </video>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide bg-video" data-title="魔法の昼の夜" data-subtitle="小鳥遊六花" data-number="3">
+                        <div class="img-mask">
+                          <div class="section-image"
+                            data-src="1.png">
+
+                            <!-- "https://tva2.sinaimg.cn/large/007GwGf6gy1gdt2tjbc04j31g00u07if.jpg" -->
+                            <div class="hero-video-wrapper">
+                              <video loop=""  class="bgvid">
+                                <source src="mv\liuhua2.mp4" type="video/mp4">
+                              </video>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 轮播图-->
+                      <div class="swiper-slide bg-video" data-title="绅士!" data-subtitle="Hentai!" data-number="4">
+                        <div class="img-mask">
+                          <div class="section-image"
+                            data-src="https://tva3.sinaimg.cn/large/007GwGf6gy1gdt2tojk43j31hc0u0awp.jpg">
+                            <div class="hero-video-wrapper">
+                              <video loop="" muted="" class="bgvid">
+                                <source src="" type="video/mp4">
+                              </video>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 视频演示 -->
+                      <div class="swiper-slide bg-video" data-title="天の使" data-subtitle="圣枪" data-number="5">
+                        <div class="img-mask">
+                          <div class="section-image" data-src="">
+                            <div class="hero-video-wrapper">
+                              <video loop=""  class="bgvid">
+                                <source src="mv\video1.mp4" type="video/mp4">
+                              </video>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--轮播号
+如果上面添加了更多的轮播内容
+需要在这里加对应 data-total=" " 值，不然空白
+-->
+              <div class="showcase-pagination-wrap">
+                <span>
+                  <div class="showcase-counter" data-total="1" style="display: none;"></div>
+                  <div class="showcase-counter" data-total="2" style="display: none;"></div>
+                  <div class="showcase-counter" data-total="3" style="display: none;"></div>
+                  <div class="showcase-counter" data-total="4" style="display: none;"></div>
+                  <div class="showcase-counter" data-total="5" style="display: none;"></div>
+                </span>
+                <div class="showcase-pagination"></div>
+                <div class="caption-border left"></div>
+                <div class="caption-border right"></div>
+                <div class="arrows-wrap">
+                  <div class="prev-wrap parallax-wrap">
+                    <div class="swiper-button-prev swiper-button-white parallax-element"></div>
+                  </div>
+                  <div class="next-wrap parallax-wrap">
+                    <div class="swiper-button-next swiper-button-white parallax-element"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--底部内容-->
+        <footer class="fixed">
+          <div id="footer-container">
+            <!--音乐控件-->
+            <div class="button-wrap left">
+              <div class="icon-wrap parallax-wrap">
+                <div class="button-icon parallax-element">
+                  <div class="bars">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="button-text">
+                <span data-on="Sound On" data-off="Sound Off">Sound On</span>
+              </div>
+            </div>
+            <div class="swiper-scrollbar"></div>
+            <div class="socials-wrap">
+              <div class="socials-icon">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+              </div>
+              <!--右下角联系我-->
+              <div class="socials-text">
+                contact me
+              </div>
+              <ul class="socials">
+                <li>
+                  <span class="parallax-wrap">
+                    <a class="parallax-element" href="#" target="_blank">
+                      <i class="fa fa-qq" aria-hidden="true"></i></a></span>
+                </li>
+                <li>
+                  <span class="parallax-wrap"><a class="parallax-element" href="#" target="_blank">
+                      <i class="fa fa-weixin" aria-hidden="true"></i></a></span>
+                </li>
+                <li>
+                  <span class="parallax-wrap"><a class="parallax-element" href="#" target="_blank">
+                      <i class="fa fa-renren" aria-hidden="true"></i></a></span>
+                </li>
+                <li>
+                  <span class="parallax-wrap"><a class="parallax-element" href="#" target="_blank">
+                      <i class="fa fa-weibo" aria-hidden="true"></i></a></span>
+                </li>
+                <li>
+                  <span class="parallax-wrap"><a class="parallax-element" href="#">
+                      <i class="fa fa-tencent-weibo" aria-hidden="true"></i></a></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </main>
+  <div class="cd-cover-layer"></div>
+  <div id="magic-cursor">
+    <div id="ball">
+      <div id="hold-event"></div>
+      <div id="ball-loader"></div>
+    </div>
+  </div>
+  <div id="clone-image"></div>
+  <div id="rotate-device"></div>
+
+
+  <!--
+网易云音乐接口：//api.imjad.cn/cloudmusic/?type=song&id=歌曲ID&br=128000&raw=ture
+-->
+<video controls="" autoplay="" name="media" style="height: 60px; width: 300px;">
+  
+</video>
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/scrollmagic.min.js"></script>
+  <script src="./js/debug.addindicators.min.js"></script>
+  <script src="./js/animation.gsap.min.js"></script>
+  <script src="./js/plugins.js"></script>
+  <script src="./js/scripts.js"></script>
+
+</body>
+
+</html>
