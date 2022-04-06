@@ -1,5 +1,6 @@
 const router = require('koa-router')()
 const { sign } = require('jsonwebtoken')
+const secret = 'my_secret' // 密钥
 
 
 // router.get('/')
@@ -31,7 +32,7 @@ router.post('/login', async (ctx, next) => {
       maxAge: 1000 * 60 * 60,
       httpOnly: true
     })
-    
+
 
     ctx.body = {
       code: 200,

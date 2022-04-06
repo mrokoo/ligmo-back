@@ -38,13 +38,7 @@ app.use((ctx, next) => {
   })
 })
 
-// jwt验证
-// 进一步检验token是否过期中间件
-app.use(jwt).unless({
-  path: [
-    '/',
-  ]
-})
+
 app.use(logger())
 // 静态文件
 app.use(require('koa-static')(__dirname + '/public'))
@@ -60,6 +54,13 @@ app.use(async (ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 
+// jwt验证
+// 进一步检验token是否过期中间件
+// app.use(jwt).unless({
+//   path: [
+//     '/',
+//   ]
+// })
 // cors 跨域解决
 app.use(cors({
   origin: '*',
